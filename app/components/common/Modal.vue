@@ -1,12 +1,9 @@
 <script setup lang="ts">
 interface Props {
   isOpen: boolean
-  maxWidth?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  maxWidth: '70vw',
-})
+const props = defineProps<Props>()
 
 const emit = defineEmits<{
   (e: 'close')
@@ -42,7 +39,6 @@ onUnmounted(() => {
     >
       <div
         class="modal-content"
-        :style="{ maxWidth }"
       >
         <div class="modal-header">
           <button
@@ -82,6 +78,7 @@ onUnmounted(() => {
     border-radius: var(--radius-lg);
     width: 100%;
     max-height: 90vh;
+    max-width: 70vw;
     overflow-y: auto;
     box-shadow: var(--shadow-lg);
     display: flex;
@@ -90,6 +87,7 @@ onUnmounted(() => {
 
   &-header {
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
     padding: var(--spacing-4) var(--spacing-6);
@@ -136,6 +134,7 @@ onUnmounted(() => {
 
     &-content {
       max-height: 95vh;
+      max-width: 500px;
     }
   }
 }
