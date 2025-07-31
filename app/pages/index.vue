@@ -4,6 +4,7 @@ import AppHeader from '~/components/common/AppHeader.vue'
 import Modal from '~/components/common/Modal.vue'
 import ErrorBoundary from '~/components/error/ErrorBoundary.vue'
 import ErrorMessage from '~/components/error/ErrorMessage.vue'
+import TaskFilter from '~/components/task/TaskFilter.vue'
 import TaskForm from '~/components/task/TaskForm.vue'
 import TaskList from '~/components/task/TaskList.vue'
 
@@ -78,6 +79,7 @@ function logError(error: Error) {
         </div>
 
         <ErrorBoundary @error="logError">
+          <TaskFilter />
           <TaskList />
         </ErrorBoundary>
 
