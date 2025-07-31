@@ -1,7 +1,7 @@
 :root {
   /* Color System */
-  --color-primary: #667eea;
-  --color-primary-dark: #764ba2;
+  --color-primary: #3742fa;
+  --color-primary-dark: #02064a;
   --color-primary-gradient: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   
   /* Neutral Colors */
