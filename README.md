@@ -68,7 +68,7 @@ app/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd task-manager
+   cd wfi-test
    ```
 
 2. **Install dependencies**
