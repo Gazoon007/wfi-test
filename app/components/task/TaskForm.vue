@@ -25,7 +25,7 @@ const validationSchema = computed(() =>
   props.mode === 'edit' ? updateTaskSchema : createTaskSchema,
 )
 
-const { defineField, handleSubmit, errors, resetForm, meta } = useForm({
+const { defineField, handleSubmit, errors, resetForm } = useForm({
   validationSchema: toTypedSchema(validationSchema.value),
   initialValues: props.task
     ? {
@@ -158,7 +158,6 @@ const submitButtonText = computed(() =>
       <button
         type="submit"
         class="btn btn--primary"
-        :disabled="isSubmitting || !meta.valid"
       >
         <span v-if="isSubmitting">
           {{ mode === 'edit' ? 'Updating...' : 'Creating...' }}
