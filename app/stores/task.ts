@@ -105,6 +105,41 @@ export const useTaskStore = defineStore('task', {
     generateId(): string {
       return crypto.randomUUID()
     },
+
+    initializeSampleData() {
+      if (this.tasks.length === 0) {
+        this.tasks = [
+          {
+            id: this.generateId(),
+            title: 'Take a walk',
+            description: 'We walk the talk not only talk the talk.',
+            status: 'done',
+            createdAt: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
+          },
+          {
+            id: this.generateId(),
+            title: 'Buy groceries',
+            description: 'Lets buy some groceries in supermarket.',
+            status: 'in_progress',
+            createdAt: new Date(Date.now() - 43200000).toISOString(), // 12 hours ago
+          },
+          {
+            id: this.generateId(),
+            title: 'Play acoustic guitar',
+            description: 'Do not forget to train for the upcoming gigs.',
+            status: 'todo',
+            createdAt: new Date(Date.now() - 21600000).toISOString(), // 6 hours ago
+          },
+          {
+            id: this.generateId(),
+            title: 'Write unit tests',
+            description: 'We postpone writing unit tests for now.',
+            status: 'todo',
+            createdAt: new Date().toISOString(),
+          },
+        ]
+      }
+    },
   },
 
   persist: true,
