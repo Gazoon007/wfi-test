@@ -27,6 +27,21 @@ export const useTaskStore = defineStore('task', {
         return state.tasks.find(task => task.id === id)
       }
     },
+
+    taskCounts: (state) => {
+      const counts = {
+        all: state.tasks.length,
+        todo: 0,
+        in_progress: 0,
+        done: 0,
+      }
+
+      state.tasks.forEach((task) => {
+        counts[task.status]++
+      })
+
+      return counts
+    },
   },
 
   actions: {
@@ -104,6 +119,20 @@ export const useTaskStore = defineStore('task', {
 
     generateId(): string {
       return crypto.randomUUID()
+    },
+
+    deleteCompletedTasks(): number {
+      const completedTasks = this.tasks.filter(task => task.status === 'done')
+      this.tasks = this.tasks.filter(task => task.status !== 'done')
+      return completedTasks.length
+    },
+
+    markAllAsCompleted() {
+      this.tasks.forEach((task) => {
+        if (task.status !== 'done') {
+          task.status = 'done'
+        }
+      })
     },
 
     initializeSampleData() {
