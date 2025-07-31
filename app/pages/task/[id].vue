@@ -59,6 +59,7 @@ function logError(error: Error) {
               mode="edit"
               :task="task"
               @submit="handleUpdateTask"
+              @cancel="router.push('/')"
             />
           </template>
           <template v-else>
